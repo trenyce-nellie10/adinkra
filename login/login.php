@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Login | Adinkra Shop</title>
   <link rel="stylesheet" href="../css/style.css">
-  <script defer src="js/login.js"></script>
+  <script defer src="../js/login.js"></script>
 </head>
 <!-- Add class bg-image if you place assets/images/bg.jpg -->
 <body class="page page-auth bg-image">
@@ -13,7 +13,7 @@
     <div class="brand">Adinkra Shop</div>
     <div class="nav-actions">
       <a href="../index.php" class="btn btn-link">Home</a>
-      <a href="login/register.php" class="btn btn-secondary">Register</a>
+      <a href="register.php" class="btn btn-secondary">Register</a>
     </div>
   </div>
 

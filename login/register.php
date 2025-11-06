@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Register</title>
-  <script src="js/register.js"></script>
+  <script src="../js/register.js"></script>
   <link rel="stylesheet" href="../css/style.css">
 
 </head>
