@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!uploadInput.files[0]) { productMsg.textContent = 'Choose an image first'; return; }
       const fd = new FormData();
       fd.append('product_image', uploadInput.files[0]);
-    const res = await fetch('/Adinkra_2025/actions/upload_product_image_action.php', { method:'POST', body:fd });
+    const res = await fetch('../actions/upload_product_image_action.php', { method:'POST', body:fd });
       const j = await res.json();
       productMsg.textContent = j.message;
       if (j.status === 'success') {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const fd = new FormData(productForm);
       const action = fd.get('product_id') ? 'update_product' : 'add_product';
       fd.append('action', action);
-    const res = await fetch('/Adinkra_2025/actions/product_actions.php', { method:'POST', body:fd });
+    const res = await fetch('../actions/product_actions.php', { method:'POST', body:fd });
       const j = await res.json();
       productMsg.textContent = j.message;
       if (j.status === 'success') productForm.reset();
