@@ -37,7 +37,7 @@
         </div>
       <?php else: ?>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#">Shop Now</a>
+          <a class="btn btn-primary" href="view/all_product.php">Shop Now</a>
         </div>
       <?php endif; ?>
     </section>
