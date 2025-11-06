@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
       message.innerHTML = data.message;
       if (data.status === "success") {
         setTimeout(() => {
-          window.location.href = "login.php";
+          window.location.href = "../login/login.php";
         }, 1500);
       }
     })
