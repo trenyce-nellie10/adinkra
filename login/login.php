@@ -12,8 +12,8 @@
   <div class="nav">
     <div class="brand">Adinkra Shop</div>
     <div class="nav-actions">
-      <a href="index.php" class="btn btn-link">Home</a>
-      <a href="register.php" class="btn btn-secondary">Register</a>
+      <a href="../index.php" class="btn btn-link">Home</a>
+      <a href="login/register.php" class="btn btn-secondary">Register</a>
     </div>
   </div>
 
