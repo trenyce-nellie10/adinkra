@@ -1,6 +1,6 @@
 <?php
 require_once("../controllers/customer_controller.php");
-require_once("/../settings/validation.php");
+require_once("../settings/validation.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = [
