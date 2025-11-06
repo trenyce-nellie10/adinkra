@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <script>
     async function loadProducts() {
-      const res = await fetch('actions/product_actions.php?action=fetch_all');
+      const res = await fetch('../actions/product_actions.php?action=fetch_all');
       const products = await res.json();
       const container = document.getElementById('productGrid');
       container.innerHTML = products.map(p => `
