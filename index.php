@@ -15,7 +15,7 @@
         <?php if (current_user_role() === 1): ?>
           <a href="#" class="btn btn-link">Admin</a>
         <?php endif; ?>
-        <a href="logout.php" class="btn btn-danger">Logout</a>
+        <a href="login/logout.php" class="btn btn-danger">Logout</a>
       <?php else: ?>
         <a href="login/register.php" class="btn btn-secondary">Register</a>
         <a href="login/login.php" class="btn btn-primary">Login</a>
