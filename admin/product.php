@@ -39,22 +39,22 @@ if (!is_logged_in() || current_user_role() !== 1) { header('Location: ../login.p
           <div class="input-group"><label>Brand</label>
             <select name="brand_id" required>
               <?php
-                $brands = $db->query("SELECT b.brand_id, b.brand_name, c.cat_name FROM brands b JOIN categories c ON b.cat_id=c.cat_id ORDER BY c.cat_name, b.brand_name")->fetchAll(PDO::FETCH_ASSOC);
-                foreach($brands as $b) echo "<option value=\"{$b['brand_id']}\">".htmlspecialchars($b['brand_name'].' ('.$b['cat_name'].')')."</option>";
+                $brands = $db->query("SELECT brand_id, brand_name FROM brands ORDER BY brand_name")->fetchAll(PDO::FETCH_ASSOC);
+                foreach($brands as $b) echo "<option value=\"{$b['brand_id']}\">".htmlspecialchars($b['brand_name'])."</option>";
               ?>
             </select>
           </div>
-          <div class="input-group"><label>Title</label><input name="title" required></div>
-          <div class="input-group"><label>Price</label><input name="price" type="number" step="0.01" required></div>
+          <div class="input-group"><label>Title</label><input name="title" required placeholder="Product title"></div>
+          <div class="input-group"><label>Price</label><input name="price" type="number" step="0.01" min="0" required></div>
         </div>
 
         <div style="flex:1;">
-          <div class="input-group"><label>Description</label><textarea name="description" rows="6"></textarea></div>
-          <div class="input-group"><label>Keywords</label><input name="keywords"></div>
+          <div class="input-group"><label>Description</label><textarea name="description" rows="6" placeholder="Product description"></textarea></div>
+          <div class="input-group"><label>Keywords</label><input name="keywords" placeholder="Search keywords (comma separated)"></div>
           <div class="input-group"><label>Image</label>
-            <input type="file" id="product_image" accept="image/*">
+            <input type="file" id="product_image" accept="image/jpeg,image/png,image/webp">
             <button id="uploadImageBtn" class="btn btn-secondary">Upload Image</button>
-            <input type="hidden" id="image_path" name="image_path">
+            <input type="hidden" id="image_path" name="product_image">
             <img id="preview" src="" alt="preview" style="max-width:100%; margin-top:8px;">
           </div>
         </div>

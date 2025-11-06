@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = await res.json();
     list.innerHTML = data.map(b => `
       <div class="brand-row" data-id="${b.brand_id}">
-        <strong>${b.brand_name}</strong> <small>(${b.cat_name})</small>
+        <strong>${b.brand_name}</strong>
         <div class="actions">
           <button class="btn btn-link edit-brand">Edit</button>
           <button class="btn btn-danger delete-brand">Delete</button>

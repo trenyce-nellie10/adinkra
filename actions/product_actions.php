@@ -26,30 +26,44 @@ switch ($action) {
         echo json_encode(filter_products_by_brand_ctr($bid));
         break;
     case 'add_product':
-        // should be POST
+        require_once(__DIR__ . "/../settings/validation.php");
         $data = [
             'cat_id' => (int)($_POST['cat_id'] ?? 0),
             'brand_id' => (int)($_POST['brand_id'] ?? 0),
             'title' => trim($_POST['title'] ?? ''),
             'price' => (float)($_POST['price'] ?? 0),
             'description' => trim($_POST['description'] ?? ''),
-            'image_path' => trim($_POST['image_path'] ?? null),
-            'keywords' => trim($_POST['keywords'] ?? null),
-            'user_id' => $_SESSION['user_id'] ?? null
+            'image_path' => trim($_POST['product_image'] ?? null), // updated field name
+            'keywords' => trim($_POST['keywords'] ?? null)
         ];
+        $errors = validate_product_fields($data);
+        if (!empty($errors)) {
+            echo json_encode(['status'=>'error', 'message'=>implode(', ', $errors)]);
+            break;
+        }
         echo json_encode(add_product_ctr($data));
         break;
     case 'update_product':
+        require_once(__DIR__ . "/../settings/validation.php");
         $pid = (int)($_POST['product_id'] ?? 0);
+        if ($pid <= 0) {
+            echo json_encode(['status'=>'error', 'message'=>'Invalid product ID']);
+            break;
+        }
         $data = [
             'cat_id' => (int)($_POST['cat_id'] ?? 0),
             'brand_id' => (int)($_POST['brand_id'] ?? 0),
             'title' => trim($_POST['title'] ?? ''),
             'price' => (float)($_POST['price'] ?? 0),
             'description' => trim($_POST['description'] ?? ''),
-            'image_path' => trim($_POST['image_path'] ?? null),
+            'image_path' => trim($_POST['product_image'] ?? null), // updated field name
             'keywords' => trim($_POST['keywords'] ?? null)
         ];
+        $errors = validate_product_fields($data);
+        if (!empty($errors)) {
+            echo json_encode(['status'=>'error', 'message'=>implode(', ', $errors)]);
+            break;
+        }
         echo json_encode(update_product_ctr($pid, $data));
         break;
     default:

@@ -1,11 +1,14 @@
 <?php
 // core.php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
 /**
- * Auth helpers
+ * Auth helpers using schema-compliant field names
  */
 function is_logged_in(): bool {
     return isset($_SESSION['user_id']);

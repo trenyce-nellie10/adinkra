@@ -28,19 +28,6 @@ require_once(__DIR__ . "/../controllers/product_controller.php");
       <div style="display:flex; gap:20px;">
         <form id="brandAddForm" style="flex:1;">
           <div class="input-group"><label>Brand name</label><input name="brand_name" required></div>
-          <div class="input-group"><label>Category</label>
-            <select name="cat_id" required>
-              <?php
-              // list categories
-              require_once(__DIR__ . "/../db/db_connection.php");
-              $db = (new DbConnection())->connect();
-              $stmt = $db->query("SELECT * FROM categories ORDER BY cat_name");
-              foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $c){
-                echo "<option value=\"{$c['cat_id']}\">".htmlspecialchars($c['cat_name'])."</option>";
-              }
-              ?>
-            </select>
-          </div>
           <button class="btn btn-primary" type="submit">Add Brand</button>
           <div id="brandMessage" class="form-message"></div>
         </form>

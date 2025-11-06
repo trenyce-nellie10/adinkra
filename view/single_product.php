@@ -18,15 +18,15 @@ if (!$p) { echo "Product not found"; exit; }
     <div class="card" style="max-width:900px;">
       <div style="display:flex; gap:20px;">
         <div style="flex:1;">
-          <img src="<?php echo htmlspecialchars($p['image_path'] ?? 'assets/images/bg.jpg'); ?>" style="width:100%; height:420px; object-fit:cover; border-radius:12px;">
+          <img src="<?php echo htmlspecialchars($p['product_image'] ?? 'assets/images/bg.jpg'); ?>" style="width:100%; height:420px; object-fit:cover; border-radius:12px;">
         </div>
         <div style="flex:1;">
-          <h1><?php echo htmlspecialchars($p['title']); ?></h1>
+          <h1><?php echo htmlspecialchars($p['product_title']); ?></h1>
           <p><strong>Brand:</strong> <?php echo htmlspecialchars($p['brand_name'] ?? ''); ?></p>
           <p><strong>Category:</strong> <?php echo htmlspecialchars($p['cat_name']); ?></p>
-          <p><strong>Price:</strong> ₵ <?php echo number_format($p['price'],2); ?></p>
-          <p><?php echo nl2br(htmlspecialchars($p['description'])); ?></p>
-          <p><strong>Keywords:</strong> <?php echo htmlspecialchars($p['keywords']); ?></p>
+          <p><strong>Price:</strong> ₵ <?php echo number_format($p['product_price'],2); ?></p>
+          <p><?php echo nl2br(htmlspecialchars($p['product_desc'])); ?></p>
+          <p><strong>Keywords:</strong> <?php echo htmlspecialchars($p['product_keywords']); ?></p>
           <button class="btn btn-primary">Add to Cart</button>
         </div>
       </div>

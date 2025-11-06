@@ -12,10 +12,10 @@
       const container = document.getElementById('productGrid');
       container.innerHTML = products.map(p => `
         <div class="card" style="max-width:320px; margin:10px;">
-          <img src="${p.image_path || 'assets/images/bg.jpg'}" style="width:100%; height:180px; object-fit:cover; border-radius:10px;">
-          <h3>${p.title}</h3>
+          <img src="${p.product_image || 'assets/images/bg.jpg'}" style="width:100%; height:180px; object-fit:cover; border-radius:10px;">
+          <h3>${p.product_title}</h3>
           <p>${p.brand_name ?? ''} • ${p.cat_name}</p>
-          <p>₵ ${parseFloat(p.price).toFixed(2)}</p>
+          <p>₵ ${parseFloat(p.product_price).toFixed(2)}</p>
           <a class="btn btn-primary" href="single_product.php?id=${p.product_id}">View</a>
         </div>
       `).join('');
