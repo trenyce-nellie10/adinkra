@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="../css/style.css">
     <script>
         async function loadProducts() {
-            const res = await fetch('/Adinkra_2025/actions/product_actions.php?action=fetch_all');
+            const res = await fetch('../actions/product_actions.php?action=fetch_all');
         const products = await res.json();
         const container = document.getElementById('productGrid');
         container.innerHTML = products.map(p => `
         <div class="card" style="max-width:320px; margin:10px;">
-          <img src="${p.product_image || 'assets/images/bg.jpg'}" style="width:100%; height:180px; object-fit:cover; border-radius:10px;">
+          <img src="${p.product_image || '../assets/images/bg.jpg'}" style="width:100%; height:180px; object-fit:cover; border-radius:10px;">
           <h3>${p.product_title}</h3>
           <p>${p.brand_name ?? ''} • ${p.cat_name}</p>
           <p>₵ ${parseFloat(p.product_price).toFixed(2)}</p>
