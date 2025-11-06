@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.dataset.original = submitBtn.textContent;
     submitBtn.textContent = "Signing in...";
 
-    fetch("actions/login_customer_action.php", {
+    fetch("../actions/login_customer_action.php", {
       method: "POST",
       body: formData
     })
