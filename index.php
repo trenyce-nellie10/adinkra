@@ -17,8 +17,8 @@
         <?php endif; ?>
         <a href="logout.php" class="btn btn-danger">Logout</a>
       <?php else: ?>
-        <a href="register.php" class="btn btn-secondary">Register</a>
-        <a href="login.php" class="btn btn-primary">Login</a>
+        <a href="login/register.php" class="btn btn-secondary">Register</a>
+        <a href="login/login.php" class="btn btn-primary">Login</a>
       <?php endif; ?>
     </div>
   </div>
@@ -32,8 +32,8 @@
       </p>
       <?php if (!is_logged_in()): ?>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="register.php">Get Started</a>
-          <a class="btn btn-link" href="login.php">I already have an account</a>
+          <a class="btn btn-primary" href="login/register.php">Get Started</a>
+          <a class="btn btn-link" href="login/login.php">I already have an account</a>
         </div>
       <?php else: ?>
         <div class="hero-actions">
