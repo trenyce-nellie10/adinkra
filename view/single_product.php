@@ -1,4 +1,4 @@
-<?php require_once("core.php");
+<?php require_once("../settings/core.php");
 $id = (int)($_GET['id'] ?? 0);
 if ($id <= 0) { header('Location: all_product.php'); exit; }
 require_once('controllers/product_controller.php');
@@ -10,7 +10,7 @@ if (!$p) { echo "Product not found"; exit; }
 <head>
   <meta charset="utf-8">
   <title><?php echo htmlspecialchars($p['title']); ?></title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="page bg-image">
   <?php include 'nav.php'; ?>

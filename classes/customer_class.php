@@ -1,6 +1,6 @@
 <?php
 // classes/customer_class.php
-require_once("../db/db_connection.php");
+require_once("../settings/db_connection.php");
 
 class Customer extends DbConnection {
 

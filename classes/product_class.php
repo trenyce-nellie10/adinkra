@@ -1,6 +1,6 @@
 <?php
 // classes/product_class.php
-require_once(__DIR__ . "/../db/db_connection.php");
+require_once(__DIR__ . "/../settings/db_connection.php");
 
 class Product extends DbConnection {
 

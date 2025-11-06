@@ -1,10 +1,10 @@
-<?php require_once("core.php"); ?>
+<?php require_once("../settings/core.php"); ?>
 <!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>All Products</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <script>
     async function loadProducts() {
       const res = await fetch('actions/product_actions.php?action=fetch_all');

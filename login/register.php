@@ -3,7 +3,7 @@
 <head>
   <title>Register</title>
   <script src="js/register.js"></script>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 
 </head>
 <body>
