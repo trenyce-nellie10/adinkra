@@ -1,4 +1,4 @@
-<?php require_once("core.php"); ?>
+<?php require_once("settings/core.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
