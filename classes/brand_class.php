@@ -1,24 +1,26 @@
 <?php
 // classes/brand_class.php
-require_once(__DIR__ . "/..ssettings/db_connection.php");
+require_once(__DIR__ . "/../settings/db_connection.php");
 
 class Brand extends DbConnection {
 
-    public function getBrandsByUser($user_id = null) {
-        $sql = "SELECT b.*, c.cat_name FROM brands b
-                JOIN categories c ON b.cat_id = c.cat_id
-                WHERE (:uid IS NULL OR b.user_id = :uid)
-                ORDER BY c.cat_name, b.brand_name";
+    /**
+     * Returns all brands from the `brands` table. The schema (shoppn.sql) only defines
+     * `brand_id` and `brand_name` for brands, so we keep operations simple.
+     */
+    public function getAllBrands() {
+        $sql = "SELECT * FROM brands ORDER BY brand_name";
         $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([':uid' => $user_id]);
+        $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function addBrand($brand_name, $cat_id, $user_id = null) {
-        $sql = "INSERT INTO brands (brand_name, cat_id, user_id) VALUES (:brand_name, :cat_id, :user_id)";
+    /** Add a brand (only brand_name is stored per schema). */
+    public function addBrand($brand_name) {
+        $sql = "INSERT INTO brands (brand_name) VALUES (:brand_name)";
         $stmt = $this->connect()->prepare($sql);
         try {
-            return $stmt->execute([':brand_name'=>$brand_name, ':cat_id'=>$cat_id, ':user_id'=>$user_id]);
+            return $stmt->execute([':brand_name'=>$brand_name]);
         } catch (PDOException $e) {
             return false;
         }
@@ -41,13 +43,6 @@ class Brand extends DbConnection {
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([':brand_id'=>$brand_id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public function getBrandsByCategory($cat_id) {
-        $sql = "SELECT * FROM brands WHERE cat_id = :cat_id ORDER BY brand_name";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([':cat_id'=>$cat_id]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 

@@ -4,18 +4,21 @@ require_once("../classes/customer_class.php");
 
 function register_customer_ctr($data) {
     $customer = new Customer();
-    if ($customer->checkEmail($data['email'])) {
+    // normalize incoming keys and check duplicate
+    $email = $data['email'] ?? null;
+    if ($email && $customer->checkEmail($email)) {
         return ["status" => "error", "message" => "Email already exists"];
     }
 
     $success = $customer->addCustomer(
-        $data['full_name'],
-        $data['email'],
-        $data['password'],
-        $data['country'],
-        $data['city'],
-        $data['contact_number'],
-        $data['user_role'] ?? 2
+        $data['full_name'] ?? '',
+        $email ?? '',
+        $data['password'] ?? '',
+        $data['country'] ?? '',
+        $data['city'] ?? '',
+        $data['contact_number'] ?? '',
+        $data['user_role'] ?? 2,
+        $data['image'] ?? null
     );
 
     return $success
@@ -40,9 +43,9 @@ function login_customer_ctr($data) {
         "message" => "Login successful",
         "payload" => [
             "customer_id" => $u['customer_id'],
-            "full_name"   => $u['full_name'],
-            "email"       => $u['email'],
-            "user_role"   => (int)$u['user_role']
+            "full_name"   => $u['customer_name'] ?? ($u['full_name'] ?? ''),
+            "email"       => $u['customer_email'] ?? ($u['email'] ?? ''),
+            "user_role"   => (int)($u['user_role'] ?? 2)
         ]
     ];
 }
