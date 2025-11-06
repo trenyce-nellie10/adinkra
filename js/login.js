@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         message.textContent = data.message || "An error occurred";
         if (data.status === "success") {
-          setTimeout(() => (window.location.href = "index.php"), 800);
+          setTimeout(() => (window.location.href = "../index.php"), 800);
         }
       })
       .catch((err) => {
