@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . "/../core.php");
+require_once(__DIR__ . "/../settings/core.php");
 if (!is_logged_in() || current_user_role() !== 1) { header('Location: ../login.php'); exit; }
 ?>
 <!doctype html>
@@ -16,7 +16,7 @@ if (!is_logged_in() || current_user_role() !== 1) { header('Location: ../login.p
   <div class="nav-actions">
     <a href="../admin/brand.php" class="btn btn-link">Brands</a>
     <a href="../index.php" class="btn btn-link">Home</a>
-    <a href="../logout.php" class="btn btn-danger">Logout</a>
+    <a href="../login/logout.php" class="btn btn-danger">Logout</a>
   </div>
 </div>
 

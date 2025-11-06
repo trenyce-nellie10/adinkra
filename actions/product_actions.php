@@ -1,6 +1,6 @@
 <?php
 require_once(__DIR__ . "/../controllers/product_controller.php");
-require_once(__DIR__ . "/../core.php");
+require_once(__DIR__ . "/../settings/core.php");
 header('Content-Type: application/json');
 
 $action = $_GET['action'] ?? $_POST['action'] ?? '';

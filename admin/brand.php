@@ -1,6 +1,6 @@
 <?php
-require_once(__DIR__ . "/../core.php");
-if (!is_logged_in() || current_user_role() !== 1) { header('Location: ../login.php'); exit; }
+require_once(__DIR__ . "/../settings/core.php");
+if (!is_logged_in() || current_user_role() !== 1) { header('Location: ../login/login.php'); exit; }
 require_once(__DIR__ . "/../controllers/brand_controller.php");
 require_once(__DIR__ . "/../controllers/product_controller.php");
 ?>
@@ -18,7 +18,7 @@ require_once(__DIR__ . "/../controllers/product_controller.php");
     <div class="nav-actions">
       <a href="../index.php" class="btn btn-link">Home</a>
       <a href="../admin/product.php" class="btn btn-secondary">Products</a>
-      <a href="../logout.php" class="btn btn-danger">Logout</a>
+      <a href="../login/logout.php" class="btn btn-danger">Logout</a>
     </div>
   </div>
 
