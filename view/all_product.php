@@ -1,4 +1,4 @@
-<?php require_once("../settings/core.php"); ?>
+<?php require_once(__DIR__ . "/../settings/core.php"); ?>
 <!doctype html>
 <html>
 
@@ -7,8 +7,8 @@
     <title>All Products</title>
     <link rel="stylesheet" href="../css/style.css">
     <script>
-    async function loadProducts() {
-        const res = await fetch('../actions/product_actions.php?action=fetch_all');
+        async function loadProducts() {
+            const res = await fetch('/Adinkra_2025/actions/product_actions.php?action=fetch_all');
         const products = await res.json();
         const container = document.getElementById('productGrid');
         container.innerHTML = products.map(p => `

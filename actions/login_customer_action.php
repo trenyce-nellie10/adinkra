@@ -1,7 +1,7 @@
 <?php
 // actions/login_customer_action.php
-require_once("../controllers/customer_controller.php");
-require_once("../settings/core.php");
+require_once(__DIR__ . "/../controllers/customer_controller.php");
+require_once(__DIR__ . "/../settings/core.php");
 
 header('Content-Type: application/json');
 

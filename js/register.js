@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
       return;
     }
 
-    fetch("../actions/register_customer_action.php", {
+    fetch("/Adinkra_2025/actions/register_customer_action.php", {
       method: "POST",
       body: formData
     })

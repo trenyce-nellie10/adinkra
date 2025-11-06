@@ -1,6 +1,6 @@
 <?php
 // uploads must already exist in webroot: htdocs/adinkra_shop/uploads/
-require_once(__DIR__ . "../settings/core.php");
+require_once(__DIR__ . "/../settings/core.php");
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -46,5 +46,5 @@ if (!move_uploaded_file($file['tmp_name'], $target)) {
 }
 
 // return web-accessible relative path
-$relPath = 'uploads/u' . intval($uid) . '/' . basename($target);
+$relPath = '/Adinkra_2025/uploads/u' . intval($uid) . '/' . basename($target);
 echo json_encode(['status'=>'success','message'=>'Uploaded', 'path'=>$relPath]);

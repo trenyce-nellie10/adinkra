@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const msg = document.getElementById('brandMessage');
 
   async function fetchBrands() {
-    const res = await fetch('actions/fetch_brand_action.php');
+  const res = await fetch('/Adinkra_2025/actions/fetch_brand_action.php');
     const data = await res.json();
     list.innerHTML = data.map(b => `
       <div class="brand-row" data-id="${b.brand_id}">
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (addForm) addForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const fd = new FormData(addForm);
-    const res = await fetch('actions/add_brand_action.php', { method:'POST', body:fd });
+  const res = await fetch('/Adinkra_2025/actions/add_brand_action.php', { method:'POST', body:fd });
     const j = await res.json();
     msg.textContent = j.message;
     if (j.status === 'success') { addForm.reset(); fetchBrands(); }
@@ -37,14 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.classList.contains('delete-brand')) {
       if (!confirm('Delete this brand?')) return;
       const fd = new FormData(); fd.append('brand_id', id);
-      const res = await fetch('actions/delete_brand_action.php', { method:'POST', body:fd});
+  const res = await fetch('/Adinkra_2025/actions/delete_brand_action.php', { method:'POST', body:fd});
       const j = await res.json(); msg.textContent = j.message; if (j.status === 'success') fetchBrands();
     }
     if (e.target.classList.contains('edit-brand')) {
       const name = prompt('New brand name', row.querySelector('strong').textContent);
       if (!name) return;
       const fd = new FormData(); fd.append('brand_id', id); fd.append('brand_name', name);
-      const res = await fetch('actions/update_brand_action.php', { method:'POST', body:fd});
+  const res = await fetch('/Adinkra_2025/actions/update_brand_action.php', { method:'POST', body:fd});
       const j = await res.json(); msg.textContent = j.message; if (j.status === 'success') fetchBrands();
     }
   });

@@ -1,6 +1,6 @@
 <?php
 // classes/product_class.php
-require_once(__DIR__ . "../settings/db_connection.php");
+require_once(__DIR__ . "/../settings/db_connection.php");
 
 class Product extends DbConnection {
 
@@ -14,7 +14,7 @@ class Product extends DbConnection {
             ':product_title'=>$data['title'],
             ':product_price'=>$data['price'],
             ':product_desc'=>$data['description'],
-            ':product_image'=>$data['image_path'] ?? null,
+            ':product_image'=>$data['image_path'] ?? $data['product_image'] ?? null,
             ':product_keywords'=>$data['keywords'] ?? null
         ]);
     }
@@ -28,7 +28,7 @@ class Product extends DbConnection {
             ':product_title'=>$data['title'],
             ':product_price'=>$data['price'],
             ':product_desc'=>$data['description'],
-            ':product_image'=>$data['image_path'] ?? null,
+            ':product_image'=>$data['image_path'] ?? $data['product_image'] ?? null,
             ':product_keywords'=>$data['keywords'] ?? null,
             ':product_id'=>$product_id
         ]);

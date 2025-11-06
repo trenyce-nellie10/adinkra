@@ -1,4 +1,4 @@
-<?php require_once("../settings/core.php");
+<?php require_once(__DIR__ . "/../settings/core.php");
 $id = (int)($_GET['id'] ?? 0);
 if ($id <= 0) { header('Location: all_product.php'); exit; }
 require_once('controllers/product_controller.php');
