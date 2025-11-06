@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const fd = new FormData(productForm);
       const action = fd.get('product_id') ? 'update_product' : 'add_product';
       fd.append('action', action);
-      const res = await fetch('actions/product_actions.php', { method:'POST', body:fd });
+      const res = await fetch('../actions/product_actions.php', { method:'POST', body:fd });
       const j = await res.json();
       productMsg.textContent = j.message;
       if (j.status === 'success') productForm.reset();

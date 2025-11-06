@@ -1,6 +1,6 @@
 <?php
 // uploads must already exist in webroot: htdocs/adinkra_shop/uploads/
-require_once(__DIR__ . "/../settings/core.php");
+require_once(__DIR__ . "../settings/core.php");
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
